@@ -1,0 +1,36 @@
+.wrapper{
+    display: flex;
+}
+
+.wrapper mat-toolbar{
+    height: 30px;
+}
+
+.column{
+    height: 100hv;
+    width: 100%;
+}
+
+.button-and-log{
+    width: 500px;
+}
+
+.button-and-log div{
+    margin-top: 10px;
+    margin-left:10px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.button-and-log button{
+    height: 60px;
+    width: 120px;
+    margin-left: 37px;
+    margin-top: 10px;
+}
+
+.watch-record-tabs{
+    margin-top: 10px;
+    margin-left:10px;
+    margin-right: 10px;
+    border: 1px solid rgba(0,0,0,0.2);
+}
