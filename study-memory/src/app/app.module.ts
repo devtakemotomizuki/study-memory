@@ -20,15 +20,15 @@ import { MatTableModule } from '@angular/material/table';
 
 /* created component */
 import { RecordAndDisplayComponent } from './record-and-display/record-and-display.component';
-import { ReportCalendarComponent } from './tab-item/report-calendar/report-calendar.component';
-import { ReportGraphComponent } from './tab-item/report-graph/report-graph.component';
+import { RecordCalendarComponent } from './tab-item/record-calendar/record-calendar.component';
+import { RecordGraphComponent } from './tab-item/record-graph/record-graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecordAndDisplayComponent,
-    ReportCalendarComponent,
-    ReportGraphComponent
+    RecordCalendarComponent,
+    RecordGraphComponent
   ],
   imports: [
     BrowserModule,

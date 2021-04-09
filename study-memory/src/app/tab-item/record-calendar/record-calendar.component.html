@@ -1,4 +1,4 @@
-<div class="report-calendar-field">
+<div class="record-calendar-field">
     <mat-toolbar class="title-bar" color="accent">
         <select class="form-control form-control-sm">
             <option value="">--科目を選択--</option>
@@ -8,7 +8,7 @@
             <button class="month-change-button"> 次月＞</button>
         </div>
     </mat-toolbar>
-    <table class="report-calendar" border="1">
+    <table class="record-calendar" border="1">
         <thead>
           <tr>
             <th class="date" scope="col">日付</th>
@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let data of selectedMonth">
+          <tr class="record-data" *ngFor="let data of selectedMonth">
             <td>{{data | date: "M/d"}}({{dayOfWeekJP[data.getDay()]}})</td>
             <td></td>
             <td></td>

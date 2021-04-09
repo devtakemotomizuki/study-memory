@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-report-calendar',
-  templateUrl: './report-calendar.component.html',
-  styleUrls: ['./report-calendar.component.css']
+  selector: 'app-record-calendar',
+  templateUrl: './record-calendar.component.html',
+  styleUrls: ['./record-calendar.component.css']
 })
-export class ReportCalendarComponent implements OnInit {
+export class RecordCalendarComponent implements OnInit {
 
   public dayOfWeekJP=[
     "日","月","火","水","木","金","土"

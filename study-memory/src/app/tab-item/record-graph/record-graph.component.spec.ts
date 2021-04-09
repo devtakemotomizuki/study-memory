@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReportCalendarComponent } from './report-calendar.component';
+import { RecordGraphComponent } from './record-graph.component';
 
-describe('ReportCalendarComponent', () => {
-  let component: ReportCalendarComponent;
-  let fixture: ComponentFixture<ReportCalendarComponent>;
+describe('recordGraphComponent', () => {
+  let component: RecordGraphComponent;
+  let fixture: ComponentFixture<RecordGraphComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReportCalendarComponent ]
+      declarations: [ RecordGraphComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReportCalendarComponent);
+    fixture = TestBed.createComponent(RecordGraphComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
