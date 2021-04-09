@@ -3,19 +3,32 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RecordAndDisplayComponent } from './record-and-display/record-and-display.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+/* import bootstrap */
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 /* angular material component */
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTableModule } from '@angular/material/table';
 
+/* created component */
+import { RecordAndDisplayComponent } from './record-and-display/record-and-display.component';
+import { ReportCalendarComponent } from './tab-item/report-calendar/report-calendar.component';
+import { ReportGraphComponent } from './tab-item/report-graph/report-graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecordAndDisplayComponent
+    RecordAndDisplayComponent,
+    ReportCalendarComponent,
+    ReportGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +37,12 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatToolbarModule,
     MatButtonModule,
     MatTabsModule,
+    MatSelectModule,
+    NgbModule,
+    MatIconModule,
+    MatDividerModule,
+    MatDatepickerModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

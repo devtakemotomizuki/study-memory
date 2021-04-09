@@ -1,0 +1,9 @@
+.title-bar{
+    height: 30px;
+    font-size: 15px;
+    font-family:　Noto Sans JP;
+}
+
+.report-calendar-field{
+    border: 1px solid rgba(0,0,0,0.1)
+}

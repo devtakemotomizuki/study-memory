@@ -5,9 +5,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './record-and-display.component.html',
   styleUrls: ['./record-and-display.component.css']
 })
+
 export class RecordAndDisplayComponent implements OnInit {
 
-  constructor() { }
+  public dayOfWeekJP=[
+    "日","月","火","水","木","金","土"
+  ]
+
+  public today:Date
+
+  constructor() {
+    this.today = new Date()
+   }
 
   ngOnInit(): void {
   }

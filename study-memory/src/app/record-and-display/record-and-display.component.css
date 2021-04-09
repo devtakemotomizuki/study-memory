@@ -1,36 +1,85 @@
+.main-toolbar{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    position: fixed;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.logo-button{
+    border: none;
+    background-color: white;
+}
+
+.logo-button :hover{
+    opacity: 0.5;
+}
+
+.title-logo{
+    height: 30px;
+    margin: 5px;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
 .wrapper{
     display: flex;
+    padding-top: 40px;
 }
 
-.wrapper mat-toolbar{
+.wrapper .title-bar{
     height: 30px;
+    font-size: 15px;
+    font-family:　Noto Sans JP;
 }
 
-.column{
+.wrapper .column{
     height: 100hv;
     width: 100%;
 }
 
-.button-and-log{
+.wrapper .button-and-log{
     width: 500px;
 }
 
-.button-and-log div{
-    margin-top: 10px;
-    margin-left:10px;
-    border: 1px solid rgba(0,0,0,0.2);
-}
-
-.button-and-log button{
-    height: 60px;
-    width: 120px;
-    margin-left: 37px;
-    margin-top: 10px;
-}
-
-.watch-record-tabs{
+.wrapper .button-and-log div{
     margin-top: 10px;
     margin-left:10px;
     margin-right: 10px;
     border: 1px solid rgba(0,0,0,0.2);
+}
+
+.wrapper .button-and-log .stamping-button-field{
+    text-align: center;
+}
+
+.wrapper .button-and-log .stamping-button-field .select-subject-field{
+    display: flex;
+    border: none;
+}
+
+.wrapper .button-and-log .stamping-button{
+    height: 60px;
+    width: 120px;
+    font-size: x-large;
+    margin: 10px 20px 10px 20px;
+}
+
+.wrapper .button-and-log select{
+    width: 300px;
+    margin: auto;
+}
+
+.wrapper .button-and-log input{
+    width: 90%;
+    height: 30px;
+    margin: 10px auto;
+}
+
+.wrapper .watch-record-tabs{
+    margin-top: 10px;
+    margin-left:10px;
 }

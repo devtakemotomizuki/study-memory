@@ -1,0 +1,37 @@
+.title-bar{
+    height: 30px;
+}
+
+.report-calendar{
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-size: x-small;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.report-calendar .date, .start, .stop{
+    width: 80px;
+}
+
+.report-calendar .subject{
+    width: 160px;
+}
+
+.form-control{
+    width: 300px;
+    height: 22px;
+    font-size: x-small;
+}
+
+.month-change-button{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: white;
+    font-size: small;
+    margin: auto 10px;
+}
+
+.month-change-button-field :hover{
+    color: rgba(220,220,220,1);
+}

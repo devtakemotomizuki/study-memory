@@ -1,0 +1,31 @@
+<div class="report-calendar-field">
+    <mat-toolbar class="title-bar" color="accent">
+        <select class="form-control form-control-sm">
+            <option value="">--科目を選択--</option>
+        </select>
+        <div class="month-change-button-field">
+            <button class="month-change-button">＜前月</button>
+            <button class="month-change-button"> 次月＞</button>
+        </div>
+    </mat-toolbar>
+    <table class="report-calendar" border="1">
+        <thead>
+          <tr>
+            <th class="date" scope="col">日付</th>
+            <th class="subject" scope="col">科目</th>
+            <th class="start" scope="col">開始</th>
+            <th class="stop" scope="col">終了</th>
+            <th class="memo" scope="col">メモ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of selectedMonth">
+            <td>{{data | date: "M/d"}}({{dayOfWeekJP[data.getDay()]}})</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
