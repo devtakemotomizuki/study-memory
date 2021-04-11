@@ -1,0 +1,28 @@
+<div class="main">
+    <div class="login-form">
+        <div class="logo-field">
+            <img src="./../../assets/title_logo.png" class="title-logo">
+        </div>
+        <br>
+        <span class="input-label">メールアドレス</span>
+        <input type="text" class="form-control" [formControl]="email" required>
+        <span class="input-label">パスワード</span>
+        <input type="text" class="form-control"[formControl]="password" required>
+        <div class="login-button">
+            <button mat-raised-button color="primary" (click)="login()"><span class="sign-in-literal">サインイン</span></button>
+        </div>
+        <br>
+        <div class="social-login-buttons-field">
+            または<br>
+            <button mat-raised-button class="social-login-button">
+                <img src="./../../assets/btn_google_dark_normal_ios.svg">
+                <span class="sign-in-literal">Googleアカウントで続ける</span>
+            </button>
+        </div><br>
+        <a routerLink="/forgot">パスワードを忘れたら</a>
+    </div>
+    <div class="signup-link">
+        アカウントをお持ちでないですか？<br>
+        <a routerLink="/signup">アカウントを作成する</a>
+    </div>
+</div>

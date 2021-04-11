@@ -10,7 +10,7 @@
     margin-bottom: 10px;
 }
 
-.record-calendar .date, .start, .stop{
+.record-calendar .date, .record-calendar .start, .record-calendar .stop{
     width: 80px;
 }
 
@@ -36,4 +36,10 @@
     color: rgba(220,220,220,1);
 }
 
- 
+.record-header{
+    background-color: rgb(230, 230, 230);
+}
+
+.record-data :hover{
+    background-color: lightcyan;
+}

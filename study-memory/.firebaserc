@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "study-memory": {
+      "hosting": {
+        "study-memory": [
+          "study-memory"
+        ]
+      }
+    }
+  }
+}

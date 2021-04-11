@@ -1,16 +1,16 @@
 <div class="record-calendar-field">
     <mat-toolbar class="title-bar" color="accent">
-        <select class="form-control form-control-sm">
-            <option value="">--科目を選択--</option>
+        <select class="form-control form-control-sm" [(ngModel)]="selectedNumber" (change)="changeSelectedMonth(0)">
+            <option *ngFor="let selected of selectMonthList" [value]="selected[1]">{{selected[0]}}</option>
         </select>
         <div class="month-change-button-field">
-            <button class="month-change-button">＜前月</button>
-            <button class="month-change-button"> 次月＞</button>
+            <button class="month-change-button" (click)="changeSelectedMonth(-1)">＜前月</button>
+            <button class="month-change-button" (click)="changeSelectedMonth(1)"> 次月＞</button>
         </div>
     </mat-toolbar>
     <table class="record-calendar" border="1">
         <thead>
-          <tr>
+          <tr class="record-header">
             <th class="date" scope="col">日付</th>
             <th class="subject" scope="col">科目</th>
             <th class="start" scope="col">開始</th>
@@ -18,9 +18,9 @@
             <th class="memo" scope="col">メモ</th>
           </tr>
         </thead>
-        <tbody>
-          <tr class="record-data" *ngFor="let data of selectedMonth">
-            <td>{{data | date: "M/d"}}({{dayOfWeekJP[data.getDay()]}})</td>
+        <tbody class="record-data" *ngFor="let date of selectedMonth" [style.background-color]="getBgcolor(date)">
+          <tr>
+            <td>{{date | date: "M/d"}}({{dayOfWeekJP[date.getDay()]}})</td>
             <td></td>
             <td></td>
             <td></td>

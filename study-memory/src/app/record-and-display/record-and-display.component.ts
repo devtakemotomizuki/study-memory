@@ -21,4 +21,8 @@ export class RecordAndDisplayComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  reload(){
+    location.reload()
+  }
+
 }

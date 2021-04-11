@@ -1,0 +1,25 @@
+<div class="main">
+    <div class="signup-form">
+        <div class="logo-field">
+            <img src="./../../assets/title_logo.png" class="title-logo">
+        </div>
+        <h1>アカウントを作成</h1>
+        <span class="input-label">メールアドレス</span>
+        <input type="text" class="form-control" [formControl]="email" required>
+        <div class="signup-button">
+            <button mat-raised-button color="primary" (click)="signup()"><span class="sign-in-literal">続ける</span></button>
+        </div>
+        <br>
+        <div class="social-signup-buttons-field">
+            または<br>
+            <button mat-raised-button class="social-signup-button">
+                <img src="./../../assets/btn_google_dark_normal_ios.svg">
+                <span class="sign-in-literal">Googleアカウントで続ける</span>
+            </button>
+        </div>
+    </div>
+    <div class="signup-link">
+        アカウントをお持ちの場合<br>
+        <a routerLink="/login">ログイン</a>
+    </div>
+</div>
