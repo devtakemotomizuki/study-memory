@@ -1,0 +1,28 @@
+.main{
+    position: relative;
+    top: 15%;
+    max-width: 700px;
+    margin: auto;
+    border: 1px solid rgb(220,220,220);
+    box-shadow: 0px 0px 5px;
+    padding: 20px 20px 40px 20px;
+}
+
+.title-logo{
+    height: 50px;
+}
+
+.literal{
+    margin: auto;
+    color: black;
+    font-family: "inherit";
+    vertical-align: middle;  
+}
+
+.login-literal{
+    margin: auto;
+    color: white;
+    font-family: "inherit";
+    font-weight: bold;
+    vertical-align: middle;  
+}

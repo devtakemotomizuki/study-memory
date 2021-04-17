@@ -1,24 +1,33 @@
 <div class="main">
     <div class="login-form">
-        <div class="logo-field">
+        <div style="text-align:center;">
             <img src="./../../assets/title_logo.png" class="title-logo">
         </div>
-        <br>
-        <span class="input-label">メールアドレス</span>
-        <input type="text" class="form-control" [formControl]="email" required>
-        <span class="input-label">パスワード</span>
-        <input type="text" class="form-control"[formControl]="password" required>
+        <h1>サインイン</h1>
+        <div style="text-align:center;">
+            <mat-form-field appearance="outline">
+                <mat-label>メールアドレス</mat-label>
+                <input matInput type="text" [formControl]="email">
+                <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>パスワード</mat-label>
+                <input matInput type="text" [formControl]="password">
+                <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
         <div class="login-button">
-            <button mat-raised-button color="primary" (click)="login()"><span class="sign-in-literal">サインイン</span></button>
+            <button mat-raised-button color="primary" (click)="login()" [disabled]="loginForm.invalid"><span class="login-literal">サインイン</span></button>
         </div>
         <br>
         <div class="social-login-buttons-field">
             または<br>
             <button mat-raised-button class="social-login-button">
                 <img src="./../../assets/btn_google_dark_normal_ios.svg">
-                <span class="sign-in-literal">Googleアカウントで続ける</span>
+                <span class="login-literal">Googleアカウントで続ける</span>
             </button>
-        </div><br>
+        </div>
+        <br>
         <a routerLink="/forgot">パスワードを忘れたら</a>
     </div>
     <div class="signup-link">

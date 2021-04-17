@@ -1,13 +1,28 @@
 <div class="main">
     <div class="signup-form">
-        <div class="logo-field">
+        <div style="text-align:center;">
             <img src="./../../assets/title_logo.png" class="title-logo">
         </div>
         <h1>アカウントを作成</h1>
-        <span class="input-label">メールアドレス</span>
-        <input type="text" class="form-control" [formControl]="email" required>
-        <div class="signup-button">
-            <button mat-raised-button color="primary" (click)="signup()"><span class="sign-in-literal">続ける</span></button>
+        <div style="text-align:center;">
+            <mat-form-field appearance="outline">
+                <mat-label>ユーザー名</mat-label>
+                <input matInput type="text" [formControl]="userName">
+                <mat-error *ngIf="userName.invalid">必須項目です</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>メールアドレス</mat-label>
+                <input matInput type="text" [formControl]="email">
+                <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>パスワード</mat-label>
+                <input matInput type="text" [formControl]="password">
+                <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div style="text-align:center;">
+            <button mat-raised-button color="primary" (click)="signupWithEmailAndPassword()" [disabled]="loginForm.invalid"><span class="sign-in-literal">続ける</span></button>
         </div>
         <br>
         <div class="social-signup-buttons-field">
@@ -16,6 +31,7 @@
                 <img src="./../../assets/btn_google_dark_normal_ios.svg">
                 <span class="sign-in-literal">Googleアカウントで続ける</span>
             </button>
+            <br>
         </div>
     </div>
     <div class="signup-link">

@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
@@ -32,6 +32,7 @@ import { RecordCalendarComponent } from './tab-item/record-calendar/record-calen
 import { RecordGraphComponent } from './tab-item/record-graph/record-graph.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { AfterSendMailComponent } from './after-send-mail/after-send-mail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
     RecordCalendarComponent,
     RecordGraphComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    AfterSendMailComponent
   ],
   imports: [
     BrowserModule,

@@ -19,6 +19,14 @@
     height: 50px;
 }
 
+.login-form h1{
+    margin: 20px;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    color: gray;
+}
+
 .login-form .input-label, .login-form a{
     margin-left: 35px;
 }
@@ -27,13 +35,13 @@
     text-align: center;
 }
 
-.login-form input{
-    margin: 10px auto;
+.login-form mat-form-field{
     width: 80%;
+    margin: 5px;
 }
 
 .login-form button{
-    margin: 20px 0 0 0;
+    margin-top: 10px;
     width: 80%;
 }
 
@@ -45,13 +53,12 @@
 .social-login-buttons-field .social-login-button{
     padding: 0;
     border: none;
-    border-radius: 5px;
     margin-top: 10px;
     background-color: #4285F4;
     padding: 2px;
 }
 
-.sign-in-literal{
+.login-literal{
     color: white;
     font-family: "inherit";
     font-weight: bold;
