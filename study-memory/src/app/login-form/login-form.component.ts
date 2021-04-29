@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -15,9 +15,8 @@ export class LoginFormComponent implements OnInit {
   public password = new FormControl('', [Validators.required,Validators.pattern(this.passwordRegExp)])
 
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
-    //private auth: AuthService
+    private auth: AuthService
   ) {
      //有効な文字列かどうか判定するための初期設定
      this.loginForm = this.formBuilder.group({
@@ -34,7 +33,6 @@ export class LoginFormComponent implements OnInit {
     if (this.email.hasError('required')) {
       return '必須項目です'
     }
-
     return this.email.hasError('email') ? '有効なメールアドレスではありません' : ''
   }
 
@@ -42,11 +40,11 @@ export class LoginFormComponent implements OnInit {
     if (this.password.hasError('required')) {
       return '必須項目です'
     }
-
     return this.password.hasError('pattern') ? '半角で英大文字、英小文字、数字を含み8字以上で作成してください' : ''
   }
 
   async login() {
+    this.auth.loginWithEmailAndPassword(this.email.value,this.password.value)
   }
 
 }

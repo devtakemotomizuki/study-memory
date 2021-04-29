@@ -61,6 +61,10 @@
     border: none;
 }
 
+.wrapper .button-and-log .stamping-button-field .select-subject-field button{
+    margin-top: 10px;
+}
+
 .wrapper .button-and-log .stamping-button{
     height: 60px;
     width: 120px;
@@ -68,15 +72,14 @@
     margin: 10px 20px 10px 20px;
 }
 
-.wrapper .button-and-log select{
-    width: 300px;
+.wrapper .button-and-log .subject{
+    width: 83%;
     margin: auto;
 }
 
-.wrapper .button-and-log input{
+.wrapper .button-and-log .memo{
     width: 90%;
-    height: 30px;
-    margin: 10px auto;
+    margin: 10px;
 }
 
 .wrapper .watch-record-tabs{

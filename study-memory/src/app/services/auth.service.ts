@@ -1,15 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { Observable} from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private angularFireAuth:AngularFireAuth, private router:Router) { }
+  public user: Observable<any>
 
-  async signupWithEmailAndPassword(email: string, password: string): Promise<void> {
+  constructor(private angularFireAuth:AngularFireAuth,
+  private router:Router) {
+    this.user = this.angularFireAuth.authState
+  }
+
+  async signupWithEmailAndPassword(userName: string, email: string, password: string): Promise<void> {
     let auth = await this.angularFireAuth
     .createUserWithEmailAndPassword(email, password) // アカウント作成
     .catch(err => {
@@ -19,9 +26,34 @@ export class AuthService {
     })
 
     if(auth!=null && auth.user != null){
+      auth.user.updateProfile({
+        displayName: userName
+      })
       await auth.user.sendEmailVerification() // メールアドレス確認
       this.router.navigate(['/send-mail'])
     }
+  }
+
+  async loginWithEmailAndPassword(email: string, password: string){
+    let credential = await this.angularFireAuth.signInWithEmailAndPassword(email, password)
+    .catch(err => {
+      console.log(err) 
+      alert("ログインに失敗しました")
+      return null
+    });
+
+    if(credential != null && credential.user != null && !credential.user.emailVerified){
+      this.angularFireAuth.signOut()
+      return alert("メールアドレスが確認できていません")
+    }
+    return this.router.navigate(['/home'])
+  }
+
+  logout() {
+    this.angularFireAuth.signOut()
+      .then(() => {
+        this.router.navigate(['/login']);
+      });
   }
   
 }

@@ -52,7 +52,7 @@ export class SignupFormComponent implements OnInit {
   }
 
   async signupWithEmailAndPassword() {
-    this.authService.signupWithEmailAndPassword(this.email.value,this.password.value)
+    this.authService.signupWithEmailAndPassword(this.userName.value,this.email.value,this.password.value)
   }
 
 }

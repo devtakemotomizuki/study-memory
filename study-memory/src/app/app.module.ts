@@ -25,6 +25,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 
 /* created component */
 import { RecordAndDisplayComponent } from './record-and-display/record-and-display.component';
@@ -33,6 +35,7 @@ import { RecordGraphComponent } from './tab-item/record-graph/record-graph.compo
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { AfterSendMailComponent } from './after-send-mail/after-send-mail.component';
+import { AddSubjectDialogComponent } from './add-subject-dialog/add-subject-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { AfterSendMailComponent } from './after-send-mail/after-send-mail.compon
     RecordGraphComponent,
     LoginFormComponent,
     SignupFormComponent,
-    AfterSendMailComponent
+    AfterSendMailComponent,
+    AddSubjectDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,8 +68,16 @@ import { AfterSendMailComponent } from './after-send-mail/after-send-mail.compon
     MatTableModule,
     MatCardModule,
     MatInputModule,
+    MatMenuModule ,
+    MatDialogModule,
   ],
-  providers: [],
+  entryComponents:[
+    AddSubjectDialogComponent
+  ],
+  providers: [{
+    provide: MatDialogRef,
+    useValue: {}
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,31 +3,44 @@
         <img src="./../../assets/title_logo.png" class="title-logo">
     </button>
     <span class="spacer"></span>
-    <button mat-icon-button color="primary">
-        <mat-icon>person</mat-icon>
+    <button mat-button class="account-button" color="primary" [matMenuTriggerFor]="accountMenu">
+        {{user.displayName}}さん
     </button>
+    <mat-menu #accountMenu="matMenu">
+        <button mat-menu-item>アカウント情報</button>
+        <button mat-menu-item (click)="authService.logout()">ログアウト</button>
+    </mat-menu>
 </header>
 <div class="wrapper">
-    <div class="column watch-record-tabs">
-        <mat-tab-group mat-align-tabs="center" color="primary">
-            <mat-tab label="管理と編集"><app-record-calendar></app-record-calendar></mat-tab>
-            <mat-tab label="グラフ"><app-record-graph></app-record-graph></mat-tab>
-        </mat-tab-group>
-    </div>
     <div class="column button-and-log">
         <div class="stamping-button-field">
             <mat-toolbar class="title-bar" color="accent">{{today | date: "yyyy年MM月dd日"}}({{dayOfWeekJP[today.getDay()]}})</mat-toolbar>
             <div class="select-subject-field">
-                <select class="form-control form-control-sm">
-                    <option value="">--科目を選択--</option>
-                </select>
-                <button mat-icon-button class="add-button" color="primary">
-                    <mat-icon>add</mat-icon>
+                <mat-form-field class="subject" appearance="outline">
+                    <mat-label>科目</mat-label>
+                    <mat-select><!-- [(value)]="selected"> -->
+                      <mat-option *ngFor="let subject of subjects" value="subject">{{subject.subject}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-icon-button class="add-button" color="primary" [matMenuTriggerFor]="subjectMenu">
+                    <mat-icon>edit</mat-icon>
                 </button>
+                <mat-menu #subjectMenu="matMenu">
+                    <button mat-menu-item (click)="openDialog()">科目を追加する</button>
+                </mat-menu>
             </div>
             <button mat-raised-button class="stamping-button" color="primary">開始</button>
             <button mat-raised-button class="stamping-button" color="warn">終了</button>
-            <input type="text" class="form-control" placeholder="メモを入力できます" aria-label="Username" aria-describedby="basic-addon1">
+            <mat-form-field class="memo" appearance="outline">
+                <mat-label>メモ</mat-label>
+                <input matInput type="text">
+            </mat-form-field>
         </div>
+    </div>
+    <div class="column watch-record-tabs">
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="管理と編集"><app-record-calendar></app-record-calendar></mat-tab>
+            <mat-tab label="グラフ"><app-record-graph></app-record-graph></mat-tab>
+        </mat-tab-group>
     </div>
 </div>

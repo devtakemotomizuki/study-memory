@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddSubjectDialogComponent } from '../add-subject-dialog/add-subject-dialog.component';
+import { User } from '../models/user';
+import { AuthService } from '../services/auth.service';
+import { SubjectService } from '../services/subject.service';
 
 @Component({
   selector: 'app-record-and-display',
@@ -13,9 +18,19 @@ export class RecordAndDisplayComponent implements OnInit {
   ]
 
   public today:Date
+  public user: User
+  public subjects: any
 
-  constructor() {
+  constructor(public authService:AuthService, public subjectService:SubjectService, public dialog: MatDialog) {
     this.today = new Date()
+    this.user = new User()
+    this.authService.user.subscribe((user:User)=>{
+      this.user = user
+      this.subjectService.getSubject().subscribe(docs=>{
+        this.subjects = docs
+      })
+    })
+    
    }
 
   ngOnInit(): void {
@@ -23,6 +38,23 @@ export class RecordAndDisplayComponent implements OnInit {
 
   reload(){
     location.reload()
+  }
+
+  openDialog(): void {
+    //ダイアログを起動
+    const dialogRef = this.dialog.open(AddSubjectDialogComponent, {
+      data: this.subjects
+    })
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result)
+      if(result != null && result != ""){
+         this.subjectService.addSubject(result)
+      }
+     
+    　//ダイアログを閉じる
+      console.log('The dialog was closed')
+    });
   }
 
 }
