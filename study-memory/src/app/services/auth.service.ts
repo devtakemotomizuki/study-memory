@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 import { Observable} from 'rxjs';
 
@@ -20,7 +21,7 @@ export class AuthService {
     let auth = await this.angularFireAuth
     .createUserWithEmailAndPassword(email, password) // アカウント作成
     .catch(err => {
-      console.log(err);
+      console.log(err)
       alert('アカウントの作成に失敗しました。\n' + err);
       return null
     })
@@ -40,7 +41,7 @@ export class AuthService {
       console.log(err) 
       alert("ログインに失敗しました")
       return null
-    });
+    })
 
     if(credential != null && credential.user != null && !credential.user.emailVerified){
       this.angularFireAuth.signOut()
@@ -53,7 +54,24 @@ export class AuthService {
     this.angularFireAuth.signOut()
       .then(() => {
         this.router.navigate(['/login']);
-      });
+      })
+  }
+
+  googleLogin() {
+    let provider = new firebase.default.auth.GoogleAuthProvider()
+    return this.oAuthLogin(provider)
+  }
+
+  private async oAuthLogin(provider:any) {
+    return this.angularFireAuth.signInWithPopup(provider)
+      .then(credential => {
+        console.log(credential.user)
+        this.router.navigate(['/home'])
+      })
+      .catch(err => {
+        console.log(err)
+        alert("ログインに失敗しました")
+      })
   }
   
 }

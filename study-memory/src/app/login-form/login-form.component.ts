@@ -48,4 +48,8 @@ export class LoginFormComponent implements OnInit {
     this.auth.loginWithEmailAndPassword(this.email.value,this.password.value)
   }
 
+  googleLogin() {
+    this.auth.googleLogin()
+  }
+
 }
