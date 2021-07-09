@@ -31,7 +31,7 @@
 }
 
 .wrapper .title-bar{
-    height: 30px;
+    height: 40px;
     font-size: 15px;
     font-family:　Noto Sans JP;
 }
@@ -45,7 +45,7 @@
     width: 500px;
 }
 
-.wrapper .button-and-log div{
+.wrapper .button-and-log .stamping-button-field{
     margin-top: 10px;
     margin-left:10px;
     margin-right: 10px;
@@ -59,17 +59,22 @@
 .wrapper .button-and-log .stamping-button-field .select-subject-field{
     display: flex;
     border: none;
-}
-
-.wrapper .button-and-log .stamping-button-field .select-subject-field button{
     margin-top: 10px;
 }
 
+.wrapper .button-and-log .stamping-button-field .select-subject-field button{
+    margin-top: 8px;
+}
+
 .wrapper .button-and-log .stamping-button{
-    height: 60px;
-    width: 120px;
-    font-size: x-large;
-    margin: 10px 20px 10px 20px;
+    height: 96px;
+    width: 130px;
+}
+
+.wrapper .button-and-log .stamping-button .mat-icon{
+    height:48px;
+    width:48px;
+    font-size:48px;
 }
 
 .wrapper .button-and-log .subject{
@@ -79,10 +84,10 @@
 
 .wrapper .button-and-log .memo{
     width: 90%;
-    margin: 10px;
+    margin-top: 20px;
 }
 
 .wrapper .watch-record-tabs{
     margin-top: 10px;
-    margin-left:10px;
+    margin-right:10px;
 }

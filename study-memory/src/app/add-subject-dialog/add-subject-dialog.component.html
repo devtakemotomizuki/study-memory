@@ -1,9 +1,0 @@
-<div class="container">
-    <span class="dialog-title">科目を追加する</span>
-    <mat-form-field appearance="outline">
-        <mat-label>科目名</mat-label>
-        <input matInput type="text" [formControl]="subject"  cdkFocusInitial>
-        <mat-error *ngIf="subject.invalid">{{getSubjectErrorMessage()}}</mat-error>
-    </mat-form-field>
-    <button mat-raised-button color="primary" [mat-dialog-close]="subject.value" [disabled]="subject.invalid">追加</button>
-</div>

@@ -1,0 +1,39 @@
+.update-button{
+    height: 50px;
+    margin: 20px 5% 0 5%;
+    width: 40%
+}
+
+mat-form-field{
+    width: 80%;
+}
+
+.dialog-title{
+    font-size: large;
+    font-family: "inherit";
+}
+
+ul{
+    list-style: none;
+    overflow: scroll;
+    margin: 0;
+    padding: 0;
+    max-height: 400px;
+    width: 100%;
+}
+
+.subject-list{
+    margin-top: 10px;
+}
+
+.reply-button{
+    margin: 21px;
+}
+
+.delete-button{
+    padding: 0 5%;
+}
+
+.title-box{
+    text-align: center;
+}

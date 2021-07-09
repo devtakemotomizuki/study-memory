@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="title-box"><span class="dialog-title">科目を編集する</span></div>
+    <span class="list-section">
+        <ul class="subject-list">
+            <ng-container *ngFor="let subject of subjects">
+                <li *ngIf="!subject.deleted">
+                    <mat-form-field appearance="outline">
+                        <input matInput type="text" [(ngModel)]="subject.subject" [disabled]="!subject.modefy">
+                        <button mat-icon-button color="primary"
+                        matSuffix
+                        (click)="modefySubject(subject.subject)" (click)="subject.modefy = !subject.modefy">
+                        <mat-icon>{{subject.modefy ? 'edit' : 'edit_off'}}</mat-icon>
+                    </button>
+                    </mat-form-field>
+                    <button mat-icon-button color="primary" class="delete-button" (click)="deleteSubject(subject.subject)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </li>
+                <li *ngIf="subject.deleted">
+                    <button mat-button class="reply-button" color="primary" (click)="subject.deleted=false">
+                        <mat-icon>reply</mat-icon>
+                        {{subject.subject}}を元に戻す
+                    </button>
+                </li>
+            </ng-container>
+        </ul>
+        <ul>
+            <li *ngIf="addFlag">
+                <mat-form-field appearance="outline">
+                    <mat-label>科目名</mat-label>
+                    <input matInput type="text" [formControl]="addSubject">
+                    <mat-error *ngIf="addSubject.invalid">{{getSubjectErrorMessage()}}</mat-error>
+                </mat-form-field>
+                <button mat-icon-button color="primary" [disabled]="addSubject.invalid" (click)="pushSubject(addSubject.value)">
+                    <mat-icon>add</mat-icon>
+                </button>
+                <button mat-icon-button color="primary" (click)="addFlag = false" (click)="addSubject.reset('')">
+                    <mat-icon>clear</mat-icon>
+                </button>
+            </li>
+            <li *ngIf="!addFlag">
+                <button mat-button color="primary" (click)="addFlag = true">
+                    <mat-icon>add</mat-icon>
+                    科目を追加する
+                </button>
+            </li>
+            </ul>
+    </span>
+    <button mat-raised-button class="update-button" color="primary" [mat-dialog-close]="subjects">更新</button>
+    <button mat-raised-button class="update-button" color="warn" (click)="onNoClick()">キャンセル</button>
+</div>

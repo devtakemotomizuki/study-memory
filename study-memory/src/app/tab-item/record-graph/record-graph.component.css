@@ -1,9 +1,30 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
 .title-bar{
-    height: 30px;
+    height: 40px;
     font-size: 15px;
-    font-family:　Noto Sans JP;
+    font-family:　"inherit";
 }
 
 .record-calendar-field{
-    border: 1px solid rgba(0,0,0,0.1)
+    border: 1px solid rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.change-button{
+    background-color: rgba(0,0,0,0);
+    border: none;
+    color: white;
+    font-size: small;
+    margin: auto 10px;
+}
+
+.change-button :disabled, .change-button[disabled]{
+    color:rgba(220,220,220,1);
+}
+
+.change-button-field :hover{
+    color: rgba(220,220,220,1);
 }

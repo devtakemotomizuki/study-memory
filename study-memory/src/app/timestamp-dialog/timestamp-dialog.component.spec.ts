@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddSubjectDialogComponent } from './add-subject-dialog.component';
+import { TimestampDialogComponent } from './timestamp-dialog.component';
 
-describe('AddSubjectDialogComponent', () => {
-  let component: AddSubjectDialogComponent;
-  let fixture: ComponentFixture<AddSubjectDialogComponent>;
+describe('TimestampDialogComponent', () => {
+  let component: TimestampDialogComponent;
+  let fixture: ComponentFixture<TimestampDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddSubjectDialogComponent ]
+      declarations: [ TimestampDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddSubjectDialogComponent);
+    fixture = TestBed.createComponent(TimestampDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

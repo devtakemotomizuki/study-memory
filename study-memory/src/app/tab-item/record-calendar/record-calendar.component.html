@@ -1,11 +1,11 @@
 <div class="record-calendar-field">
     <mat-toolbar class="title-bar" color="accent">
-        <select class="form-control form-control-sm" [(ngModel)]="selectedNumber" (change)="changeSelectedMonth(0)">
+        <select class="form-control form-control-sm" [(ngModel)]="selectedNumber" (change)="selectedfunc(0)">
             <option *ngFor="let selected of selectMonthList" [value]="selected[1]">{{selected[0]}}</option>
         </select>
         <div class="month-change-button-field">
-            <button class="month-change-button" (click)="changeSelectedMonth(-1)">＜前月</button>
-            <button class="month-change-button" (click)="changeSelectedMonth(1)"> 次月＞</button>
+            <button class="month-change-button" (click)="selectedfunc(-1)">＜前月</button>
+            <button class="month-change-button" (click)="selectedfunc(1)" [disabled]="selectedNumber==0"> 次月＞</button>
         </div>
     </mat-toolbar>
     <table class="record-calendar" border="1">
@@ -15,16 +15,18 @@
             <th class="subject" scope="col">科目</th>
             <th class="start" scope="col">開始</th>
             <th class="stop" scope="col">終了</th>
+            <th class="time" scope="col">勉強時間</th>
             <th class="memo" scope="col">メモ</th>
           </tr>
         </thead>
         <tbody class="record-data" *ngFor="let date of selectedMonth" [style.background-color]="getBgcolor(date)">
-          <tr>
-            <td>{{date | date: "M/d"}}({{dayOfWeekJP[date.getDay()]}})</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+          <tr *ngFor="let timestamp of getTimestampOfDay(date); index as i" (click)="openTimestampDialog(getTimestampOfDay(date),date)">
+            <td [class]="getDataBoxClass(i)"><span *ngIf="i == 0">{{date | date: "M/d"}}({{dayOfWeekJP[date.getDay()]}})</span></td>
+            <td>{{getSubject(timestamp.subject)}}</td>
+            <td>{{timestamp.start | date: "HH:mm"}}</td>
+            <td>{{timestamp.end | date: "HH:mm"}}</td>
+            <td [class]="getDataBoxClass(i)"><span *ngIf="i == 0">{{studyTimeOfDay(date)}}</span></td>
+            <td>{{timestamp.memo}}</td>
           </tr>
         </tbody>
       </table>

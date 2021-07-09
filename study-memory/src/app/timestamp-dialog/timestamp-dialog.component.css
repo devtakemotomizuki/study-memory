@@ -1,0 +1,54 @@
+.container{
+    text-align: center;
+}
+
+.dialog-title{
+    font-size: x-large;
+}
+
+.form{
+    display:inline-flex
+}
+
+.title-box{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-control{
+    height: 24px;
+    text-align: center;
+    width: 95%;
+    margin: auto;
+}
+
+.start, .stop, .time{
+    width: 80px;
+}
+
+.button{
+    width: 20px;
+}
+
+.subject{
+    width: 160px;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+}
+
+tr{
+    width: 100%;
+}
+
+.update-button{
+    height: 50px;
+    margin: 20px 5% 0 5%;
+    width: 20%
+}
+
+.error-message{
+    color: red;
+}

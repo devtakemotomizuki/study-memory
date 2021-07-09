@@ -1,3 +1,22 @@
 <div class="record-calendar-field">
-    <mat-toolbar class="title-bar" color="accent"></mat-toolbar>
+    <mat-toolbar class="title-bar" color="accent">
+        <div class="change-button-field">
+            <button class="change-button" (click)="updateChart(31)">＜前の1ヶ月</button>
+            <button class="change-button" (click)="updateChart(-31)" [disabled]="graphService.correntDateCount==0"> 次の1ヶ月＞</button>
+        </div>
+        <span class="spacer"></span>
+        <button mat-icon-button color="white" (click)="updateChart(0)">
+            <mat-icon>refresh</mat-icon>
+        </button>
+    </mat-toolbar><br>
+    <div>
+        <canvas baseChart
+        [datasets]="graphService.barChartDataDate"
+        [labels]="graphService.barChartLabelsDate"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [chartType]="barChartType">
+      </canvas>
+    </div>
 </div>

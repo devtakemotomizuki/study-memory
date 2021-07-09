@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="title-box"><span class="dialog-title">{{timestampAndDate.date | date: "M月d日"}}({{dayOfWeekJP[timestampAndDate.date.getDay()]}})の活動の編集</span></div>
+    <div class="error-message">{{getErrorMessage()}}</div>
+    <table>
+        <thead>
+            <tr class="record-header">
+              <th class="subject" scope="col">科目</th>
+              <th class="start" scope="col">開始</th>
+              <th></th>
+              <th class="stop" scope="col">終了</th>
+              <th class="memo" scope="col">メモ</th>
+              <th class="button"></th>
+            </tr>
+         </thead>
+         <ng-container *ngFor="let timestamp of timestampOfDay; let i = index">
+            <tr *ngIf="!timestamp.deleted">
+                <td>
+                    <select class="form-control form-control-sm" [(ngModel)]="timestamp.subject">
+                        <option value="">none</option>
+                        <ng-container *ngFor="let subject of subjects">
+                            <option *ngIf="subject.deleted_at == null || timestampAndDate.timestampOfDay[i].subject == subject.docID" value="{{subject.docID}}">{{subject.subject}}</option>
+                        </ng-container>
+                    </select>
+                </td><td>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="timestamp.start" (change)="timestamp.start = changeTime(timestamp.start)">
+                </td><td>
+                    ー
+                </td><td>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="timestamp.end" (change)="timestamp.end = changeTime(timestamp.end)">
+                </td><td>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="timestamp.memo">
+                </td>
+                <td>
+                    <button mat-icon-button color="primary" class="delete-button" (click)="timestamp.deleted = true">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <tr *ngIf="timestamp.deleted">
+                <button mat-button class="reply-button" color="primary" (click)="timestamp.deleted=false">
+                    <mat-icon>reply</mat-icon>
+                    元に戻す
+                </button>
+            </tr>
+        </ng-container>
+        <ng-container *ngFor="let timestamp of timestampOfDayAdded">
+            <tr *ngIf="!timestamp.deleted">
+                <td>
+                    <select class="form-control form-control-sm" [(ngModel)]="timestamp.subject">
+                        <option value="">none</option>
+                        <ng-container *ngFor="let subject of subjects">
+                            <option *ngIf="subject.deleted_at == null" value="{{subject.docID}}">{{subject.subject}}</option>
+                        </ng-container>
+                    </select>
+                </td><td>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="timestamp.start" (change)="timestamp.start = changeTime(timestamp.start)">
+                </td><td>
+                    ー
+                </td><td>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="timestamp.end">
+                </td><td>
+                    <input type="text" class="form-control" aria-describedby="basic-addon1" [(ngModel)]="timestamp.memo">
+                </td>
+                <td>
+                    <button mat-icon-button color="primary" class="delete-button" (click)="timestamp.deleted = true">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </ng-container>
+    </table>
+    <button mat-button color="primary" (click)="addTimestampOfDay()">
+        <mat-icon>add</mat-icon>
+        追加する
+    </button><br>
+    <button mat-raised-button class="update-button" color="primary" [disabled]="!checkTimeStamp()" [mat-dialog-close]="createResult()">更新</button>
+    <button mat-raised-button class="update-button" color="warn" (click)="onNoClick()">キャンセル</button>
+</div>

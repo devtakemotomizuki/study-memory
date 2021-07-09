@@ -18,22 +18,32 @@
             <div class="select-subject-field">
                 <mat-form-field class="subject" appearance="outline">
                     <mat-label>科目</mat-label>
-                    <mat-select><!-- [(value)]="selected"> -->
-                      <mat-option *ngFor="let subject of subjects" value="subject">{{subject.subject}}</mat-option>
+                    <mat-select [(value)]="selectedSubject">
+                        <mat-option value="">指定なし</mat-option>
+                        <ng-container *ngFor="let subject of subjects">
+                            <mat-option *ngIf="subject.deleted_at == null" value="{{subject.docID}}">{{subject.subject}}</mat-option>
+                        </ng-container>
                     </mat-select>
                 </mat-form-field>
-                <button mat-icon-button class="add-button" color="primary" [matMenuTriggerFor]="subjectMenu">
+                <button mat-icon-button class="add-button" color="primary" (click)="openSubjectDialog()">
                     <mat-icon>edit</mat-icon>
                 </button>
-                <mat-menu #subjectMenu="matMenu">
-                    <button mat-menu-item (click)="openDialog()">科目を追加する</button>
-                </mat-menu>
             </div>
-            <button mat-raised-button class="stamping-button" color="primary">開始</button>
-            <button mat-raised-button class="stamping-button" color="warn">終了</button>
+            <div *ngIf="stateFlag" class="stamp-field">
+                <button mat-fab color="warn" class="stamping-button" (click)="timestampService.pushStartStamp(selectedSubject,memo)" (click)="memo=''" (click)="stateFlag = !stateFlag">
+                    <mat-icon>play_arrow</mat-icon>
+                </button><br><br>
+                <span>ボタンを押して勉強開始！</span>
+            </div>
+            <div *ngIf="!stateFlag" class="stamp-field">
+                <button mat-fab color="primary" class="stamping-button" (click)="timestampService.pushEndStamp()" (click)="stateFlag = !stateFlag">
+                    <mat-icon> pause</mat-icon>
+                </button><br><br>
+                <span>・・・勉強中・・・</span>
+            </div>
             <mat-form-field class="memo" appearance="outline">
                 <mat-label>メモ</mat-label>
-                <input matInput type="text">
+                <input matInput type="text" [(ngModel)]="memo">
             </mat-form-field>
         </div>
     </div>

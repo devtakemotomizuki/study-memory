@@ -1,5 +1,5 @@
 .title-bar{
-    height: 30px;
+    height: 40px;
 }
 
 .record-calendar{
@@ -10,7 +10,7 @@
     margin-bottom: 10px;
 }
 
-.record-calendar .date, .record-calendar .start, .record-calendar .stop{
+.record-calendar .date, .record-calendar .start, .record-calendar .stop, .record-calendar .time{
     width: 80px;
 }
 
@@ -20,7 +20,7 @@
 
 .form-control{
     width: 300px;
-    height: 22px;
+    height: 30px;
     font-size: x-small;
 }
 
@@ -42,4 +42,16 @@
 
 .record-data :hover{
     background-color: lightcyan;
+}
+
+.top-td{
+    border-bottom: none;
+}
+
+.none-border{
+    border: none;
+}
+
+.month-change-button :disabled, .month-change-button[disabled]{
+    color:rgba(220,220,220,1);
 }

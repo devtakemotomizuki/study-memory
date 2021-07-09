@@ -13,6 +13,7 @@ export class LoginFormComponent implements OnInit {
   public loginForm: FormGroup
   public email = new FormControl('', [Validators.required, Validators.email])
   public password = new FormControl('', [Validators.required,Validators.pattern(this.passwordRegExp)])
+  public hide: boolean = true
 
   constructor(
     private formBuilder: FormBuilder,
