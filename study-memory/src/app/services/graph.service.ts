@@ -114,4 +114,12 @@ export class GraphService {
     return chartData
   }
 
+  getTitle(){
+    let startDate = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate()-this.correntDateCount-30)
+    let endDate = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate()-this.correntDateCount)
+    let start = String(this.datePipe.transform(startDate, "yyyy MM/dd"))
+    let end = String(this.datePipe.transform(endDate, "yyyy MM/dd"))
+    return start + "~" + end  
+  }
+
 }

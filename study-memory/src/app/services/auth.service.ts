@@ -53,7 +53,7 @@ export class AuthService {
   logout() {
     this.angularFireAuth.signOut()
       .then(() => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/login'])
       })
   }
 
@@ -72,6 +72,17 @@ export class AuthService {
         console.log(err)
         alert("ログインに失敗しました")
       })
+  }
+
+  passwordForgot(email: string){
+    this.angularFireAuth.sendPasswordResetEmail(email).then(() => {
+      alert("メールを送信しました")
+      this.router.navigate(['/login'])
+    })
+    .catch((err) => {
+      console.log(err)
+      alert("送信に失敗しました\n"+err.message)
+    })
   }
   
 }

@@ -12,6 +12,8 @@ export class RecordGraphComponent implements AfterViewInit {
 
   @ViewChild(BaseChartDirective) public chart!:BaseChartDirective
 
+  graphTitle = ""
+
   barChartOptions: ChartOptions = {
     responsive: true,
     scales: {
@@ -27,7 +29,9 @@ export class RecordGraphComponent implements AfterViewInit {
   barChartLegend = false
   barChartPlugins = []
 
-  constructor(public graphService:GraphService) {}
+  constructor(public graphService:GraphService) {
+    this.graphTitle = this.graphService.getTitle()
+  }
 
   ngAfterViewInit(): void {}
 
@@ -35,5 +39,6 @@ export class RecordGraphComponent implements AfterViewInit {
     this.graphService.correntDateCount += def
     this.graphService.barChartLabelsDate = this.graphService.getchartLabel()
     this.graphService.barChartDataDate[0].data = this.graphService.getStudyTimeDate()
+    this.graphTitle = this.graphService.getTitle()
   }
 }

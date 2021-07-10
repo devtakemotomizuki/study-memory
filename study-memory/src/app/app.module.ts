@@ -44,6 +44,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { AfterSendMailComponent } from './after-send-mail/after-send-mail.component';
 import { SubjectDialogComponent } from './subject-dialog/subject-dialog.component';
 import { TimestampDialogComponent } from './timestamp-dialog/timestamp-dialog.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { TimestampDialogComponent } from './timestamp-dialog/timestamp-dialog.co
     AfterSendMailComponent,
     SubjectDialogComponent,
     TimestampDialogComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

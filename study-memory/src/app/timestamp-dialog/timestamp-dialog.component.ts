@@ -33,8 +33,8 @@ export class TimestampDialogComponent implements OnInit {
     for(let timestamp of this.timestampAndDate.timestampOfDay){
       this.timestampOfDay.push({
         docID: timestamp.docID,
-        start: this.datePipe.transform(timestamp.start, "hh:mm"),
-        end: this.datePipe.transform(timestamp.end, "hh:mm"),
+        start: this.datePipe.transform(timestamp.start, "HH:mm"),
+        end: this.datePipe.transform(timestamp.end, "HH:mm"),
         subject: timestamp.subject,
         memo: timestamp.memo,
         deleted: false

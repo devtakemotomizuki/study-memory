@@ -7,7 +7,6 @@
         {{user.displayName}}さん
     </button>
     <mat-menu #accountMenu="matMenu">
-        <button mat-menu-item>アカウント情報</button>
         <button mat-menu-item (click)="authService.logout()">ログアウト</button>
     </mat-menu>
 </header>
