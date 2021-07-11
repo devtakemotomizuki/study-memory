@@ -8,20 +8,20 @@
 
 ### サインアップ・ログイン
 
-![ログイン](/markdown/login)
+![ログイン](/markdown/login.png)
 
 メールアドレスのログインとGoogleアカウントでのログインがあります。
 
 ### 勉強時間の記録
 
-![記録](/markdown/record)
+![記録](/markdown/record.png)
 
 再生ボタンを押すことで記録を開始できます。特定の日付の部分をクリックすることで編集もできます。
 
 
 ### グラフを見る
 
-![グラフ](/markdown/graph)
+![グラフ](/markdown/graph.png)
 
 記録した時間をグラフで見ることができます
 
